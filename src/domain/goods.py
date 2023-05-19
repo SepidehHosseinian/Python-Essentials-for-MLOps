@@ -1,2 +1,0 @@
-class Goods:
-    pass
