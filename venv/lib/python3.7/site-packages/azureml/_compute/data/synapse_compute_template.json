@@ -1,0 +1,15 @@
+{
+  "id" : "",
+  "name" : "",
+  "location": "",
+  "tags": null,
+  "properties": {
+    "description": null,
+	  "resourceId": "",
+	  "computeType": "SynapseSpark",
+    "properties": null,
+    "provisioningState": "Unknown",
+    "provisioningErrors": null,
+    "isAttachedCompute": true
+    }
+}

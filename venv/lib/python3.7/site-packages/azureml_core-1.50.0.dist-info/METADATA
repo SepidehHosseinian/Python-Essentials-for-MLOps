@@ -1,0 +1,78 @@
+Metadata-Version: 2.1
+Name: azureml-core
+Version: 1.50.0
+Summary: Azure Machine Learning core packages, modules, and classes
+Home-page: https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py
+Author: Microsoft Corp
+License: https://aka.ms/azureml-sdk-license
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.7,< 4.0
+Description-Content-Type: text/x-rst
+Requires-Dist: pytz
+Requires-Dist: backports.tempfile
+Requires-Dist: pathspec (<1.0.0)
+Requires-Dist: requests[socks] (<3.0.0,>=2.19.1)
+Requires-Dist: msal (<2.0.0,>=1.15.0)
+Requires-Dist: msal-extensions (<=1.0.0,>=0.3.0)
+Requires-Dist: knack (~=0.10.0)
+Requires-Dist: azure-core (<2.0.0)
+Requires-Dist: pkginfo
+Requires-Dist: argcomplete (<3)
+Requires-Dist: humanfriendly (<11.0,>=4.7)
+Requires-Dist: paramiko (<4.0.0,>=2.0.8)
+Requires-Dist: azure-mgmt-resource (<=22.0.0,>=15.0.0)
+Requires-Dist: azure-mgmt-containerregistry (<11,>=8.2.0)
+Requires-Dist: azure-mgmt-storage (<=21.0.0,>=16.0.0)
+Requires-Dist: azure-mgmt-keyvault (<11.0.0,>=0.40.0)
+Requires-Dist: azure-mgmt-authorization (<4,>=0.40.0)
+Requires-Dist: azure-graphrbac (<1.0.0,>=0.40.0)
+Requires-Dist: azure-common (<2.0.0,>=1.1.12)
+Requires-Dist: msrest (<=0.7.1,>=0.5.1)
+Requires-Dist: msrestazure (<=0.6.4,>=0.4.33)
+Requires-Dist: urllib3 (<2.0.0,>=1.23)
+Requires-Dist: packaging (<=23.0,>=20.0)
+Requires-Dist: cryptography (!=1.9,!=2.0.*,!=2.1.*,!=2.2.*,<41)
+Requires-Dist: python-dateutil (<3.0.0,>=2.7.3)
+Requires-Dist: ndg-httpsclient (<=0.5.1)
+Requires-Dist: SecretStorage (<4.0.0)
+Requires-Dist: jsonpickle (<4.0.0)
+Requires-Dist: contextlib2 (<22.0.0)
+Requires-Dist: docker (<7.0.0)
+Requires-Dist: PyJWT (<3.0.0)
+Requires-Dist: adal (<=1.2.7,>=1.2.0)
+Requires-Dist: pyopenssl (<24.0.0)
+Requires-Dist: jmespath (<2.0.0)
+
+
+The azureml-core provides core packages, modules, and classes for Azure Machine Learning and includes the following:
+
+- Creating/managing workspaces and experiments, and submitting/accessing model runs and run output/logging.
+- Creating/managing Machine learning compute targets and resources
+- Models, images and web services.
+- Modules supporting data representation for Datastore and Dataset in Azure Machine Learning.
+- Azure Machine Learning exception classes.
+- Module used internally to prepare the Azure ML SDK for remote environments.
+
+*****************
+Setup
+*****************
+Follow these `instructions <https://docs.microsoft.com/azure/machine-learning/how-to-configure-environment#local>`_ to install the Azure ML SDK on your local machine, create an Azure ML workspace, and set up your notebook environment, which is required for the next step.
+
+Once you have set up your environment, install the Azure ML core package:
+
+.. code-block:: python
+
+  pip install azureml-core
+
+
+
+

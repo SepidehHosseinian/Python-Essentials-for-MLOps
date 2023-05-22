@@ -1,0 +1,17 @@
+{
+  "name": null,
+  "tags": null,
+  "properties": null,
+  "description": null,
+  "url": null,
+  "mimeType": "application/json",
+  "framework": null,
+  "frameworkVersion": null,
+  "unpack": false,
+  "experimentName": null,
+  "runId": null,
+  "datasets": null,
+  "sampleInputData": null,
+  "sampleOutputData": null,
+  "resourceRequirements": null
+}

@@ -1,0 +1,12 @@
+{
+  "location": "",
+  "properties": {
+    "computeType": "VirtualMachine",
+    "computeLocation": "",
+    "resourceId": "",
+    "properties": {
+      "virtualMachineSize": "",
+      "sshPort":""
+    }
+  }
+}

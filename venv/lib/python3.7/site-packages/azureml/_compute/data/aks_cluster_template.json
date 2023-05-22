@@ -1,0 +1,30 @@
+{
+  "location": "",
+  "properties": {
+    "computeType": "AKS",
+    "computeLocation": "",
+    "resourceId": "",
+    "properties": {
+      "agentCount": null,
+      "agentVmSize": "",
+      "clusterPurpose": "",
+      "sslConfiguration": {
+        "status": "Disabled",
+        "cname": "",
+        "cert": "",
+        "key": "",
+        "leafDomainLabel": "",
+        "overwriteExistingDomain": false
+      },
+      "aksNetworkingConfiguration":{
+        "subnetId": "",
+        "serviceCidr": "",
+        "dnsServiceIP": "",
+        "dockerBridgeCidr": ""
+      },
+      "loadBalancerType": "PublicIp",
+      "loadBalancerSubnet": null
+    }
+  }
+}
+

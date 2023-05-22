@@ -1,0 +1,18 @@
+{
+  "location": "",
+  "properties": {
+    "computeType": "VirtualMachine",
+    "computeLocation": "",
+    "properties": {
+      "virtualMachineSize": "",
+      "sshPort":"",
+      "address":"",
+      "administratorAccount": {
+        "username": "",
+        "publicKeyData": "",
+        "privateKeyData": "",
+        "password":""
+      }
+    }
+  }
+}

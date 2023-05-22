@@ -1,0 +1,98 @@
+{
+    "contentVersion": "1.0.0.0",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "parameters": {
+        "workspaceName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the machine learning workspace"
+            }
+        },
+        "storageAccountName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the storage account to be associated with this workspace"
+            }
+        },
+        "acrName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the conainter resgistry to be associated with this workspace"
+            }
+        },
+        "location": {
+            "type": "string",
+            "metadata": {
+                "description": "Location of the machine learning experimentation workspace."
+            }
+        },
+        "storageLocation": {
+            "type": "string",
+            "metadata": {
+                "description": "Location of the associated storage account."
+            }
+        },
+        "acrLocation": {
+            "type": "string",
+            "metadata": {
+                "description": "Location of the associated container registry."
+            }
+        },
+        "storageAccountSku": {
+            "type": "string",
+            "defaultValue": "Standard_LRS",
+            "metadata": {
+                "description": "Sku of the storage account"
+            }
+        }
+    },
+    "variables": {
+        "mlservicesVersion": "2019-06-01",
+        "stgResourceId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
+        "acrResourceId": "[resourceId('Microsoft.ContainerRegistry/registries', parameters('acrName'))]"
+    },
+    "resources": [
+        {
+            "name": "[parameters('storageAccountName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "location": "[parameters('storageLocation')]",
+            "apiVersion": "2016-12-01",
+            "tags": {
+                "mlWorkspace": "[parameters('workspaceName')]"
+            },
+            "sku": {
+                "name": "[parameters('storageAccountSku')]"
+            },
+            "kind": "Storage",
+            "properties": {
+                "encryption": {
+                    "services": {
+                        "blob": {
+                            "enabled": true
+                        }
+                    },
+                    "keySource": "Microsoft.Storage"
+                },
+                "supportsHttpsTrafficOnly": true,
+                "allowBlobPublicAccess": false
+            }
+        },
+        {
+            "apiVersion": "[variables('mlservicesVersion')]",
+            "type": "Microsoft.MachineLearningServices/workspaces",
+            "name": "[parameters('workspaceName')]",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[variables('stgResourceId')]"
+            ],
+            "properties": {
+                "storageAccount": "[variables('stgResourceId')]",
+                "containerRegistry": "[variables('acrResourceId')]",
+                "friendlyName": "[parameters('workspaceName')]"
+            },
+            "identity": {
+                "type": "systemAssigned"
+            }
+        }
+    ]
+}

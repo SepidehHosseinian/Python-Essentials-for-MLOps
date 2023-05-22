@@ -1,0 +1,6 @@
+[azureml_run_type_providers]
+azureml.scriptrun = azureml.core.script_run:ScriptRun._from_run_dto
+
+[console_scripts]
+azml = azureml._cli.aml_cli:start_cli
+

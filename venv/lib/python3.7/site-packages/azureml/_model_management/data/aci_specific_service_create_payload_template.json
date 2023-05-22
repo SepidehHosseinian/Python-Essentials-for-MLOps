@@ -1,0 +1,18 @@
+{
+  "containerResourceRequirements": {
+      "cpu": null,
+      "memoryInGB": null
+  },
+  "authEnabled": null,
+  "sslEnabled": null,
+  "appInsightsEnabled": null,
+  "dataCollection": {
+    "storageEnabled": false,
+    "eventHubEnabled": false
+  },
+  "sslCertificate": null,
+  "sslKey": null,
+  "cname": null,
+  "dnsNameLabel": null,
+  "overwrite": null
+}
