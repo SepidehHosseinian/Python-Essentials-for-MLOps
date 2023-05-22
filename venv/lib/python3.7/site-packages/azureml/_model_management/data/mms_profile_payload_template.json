@@ -1,0 +1,10 @@
+{
+    "name": null,
+    "description": null,
+    "inputDatasetId": null,
+    "containerResourceRequirements": {
+        "cpu": null,
+        "memoryInGB": null
+    },
+    "environmentImageRequest": null
+  }

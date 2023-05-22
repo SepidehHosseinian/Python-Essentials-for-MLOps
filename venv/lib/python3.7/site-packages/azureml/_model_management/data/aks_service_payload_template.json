@@ -1,0 +1,47 @@
+{
+  "name": null,
+  "description": null,
+  "tags": null,
+  "properties": null,
+  "computeType": null,
+  "imageId": null,
+  "numReplicas": null,
+  "dataCollection": {
+    "storageEnabled": false,
+    "eventHubEnabled": false
+  },
+  "computeName": null,
+  "appInsightsEnabled": null,
+  "autoScaler": {
+    "autoscaleEnabled": false,
+    "minReplicas": null,
+    "maxReplicas": null,
+    "targetUtilization": null,
+    "refreshPeriodInSeconds": null
+  },
+  "containerResourceRequirements": {
+    "cpu": null,
+    "cpuLimit": null,
+    "memoryInGB": null,
+    "memoryInGBLimit": null,
+    "gpu": null
+  },
+  "livenessProbeRequirements": {
+    "initialDelaySeconds": null,
+    "periodSeconds": null,
+    "failureThreshold": null,
+    "successThreshold": null,
+    "timeoutSeconds": null
+  },
+  "maxConcurrentRequestsPerContainer": null,
+  "maxQueueWaitMs": null,
+  "namespace": null,
+  "keys": {
+    "primaryKey": null,
+    "secondaryKey": null
+  },
+  "scoringTimeoutMs": null,
+  "authEnabled": null,
+  "aadAuthEnabled": null,
+  "overwrite": null
+}

@@ -1,0 +1,13 @@
+{
+  "name": null,
+  "description": null,
+  "kvTags": null,
+  "properties": null,
+  "keys": {
+    "primaryKey": null,
+    "secondaryKey": null
+  },
+  "computeType": null,
+  "environmentImageRequest": null,
+  "location": null
+}

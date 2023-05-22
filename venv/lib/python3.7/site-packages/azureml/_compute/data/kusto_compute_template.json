@@ -1,0 +1,22 @@
+{
+  "id": null,
+  "name": null,
+  "location": "",
+  "tags": null,
+  "properties": {
+    "description": null,
+    "resourceId": "",
+    "computeType": "Kusto",
+    "provisioningState": "Unknown",
+    "provisioningErrors": null,
+    "isAttachedCompute": true,
+    "properties": {
+      "servicePrincipalCredentials": {
+        "clientId": "",
+        "secret": "",
+        "tenantId": ""
+      },
+      "kustoConnectionString": ""
+    }
+  }
+}

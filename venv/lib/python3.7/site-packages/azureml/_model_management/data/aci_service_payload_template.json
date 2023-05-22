@@ -1,0 +1,23 @@
+{
+	"imageId": null,
+	"name": null,
+	"containerResourceRequirements": {
+		"cpu": null,
+		"memoryInGB": null
+	},
+	"tags": null,
+	"properties": null,
+	"description": null,
+	"computeType": "ACI",
+	"location": null,
+	"authEnabled": null,
+	"sslEnabled": null,
+	"appInsightsEnabled": null,
+	"sslCertificate": null,
+	"sslKey": null,
+	"cname": null,
+	"dnsNameLabel": null,
+	"overwrite": null,
+	"encryptionProperties": null,
+	"vnetConfiguration": null
+}

@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: azure-ml
+Version: 0.0.1
+Summary: Azure Machine Learning SDK V2
+Home-page: https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py
+Author: Microsoft Corp
+License: Proprietary https://aka.ms/azureml-preview-sdk-license 
+Platform: UNKNOWN
+Description-Content-Type: text/x-rst
+License-File: LICENSE.txt
+
+AzureML Contrib for AzureML Kubernetes compute target.
+
+
+

@@ -1,0 +1,18 @@
+{
+  "name": null,
+  "description": null,
+  "tags": null,
+  "properties": null,
+  "computeType": null,
+  "computeName": null,
+  "appInsightsEnabled": null,
+  "namespace": null,
+  "authEnabled": null,
+  "aadAuthEnabled": null,
+  "versions": null,
+  "keys": {
+    "primaryKey": null,
+    "secondaryKey": null
+  },
+  "overwrite": false
+}

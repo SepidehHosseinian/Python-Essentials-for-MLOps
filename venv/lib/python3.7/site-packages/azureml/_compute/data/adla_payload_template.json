@@ -1,0 +1,8 @@
+{
+  "location": "",
+  "properties": {
+    "computeType": "DataLakeAnalytics",
+    "computeLocation": "",
+    "resourceId": ""
+  }
+}

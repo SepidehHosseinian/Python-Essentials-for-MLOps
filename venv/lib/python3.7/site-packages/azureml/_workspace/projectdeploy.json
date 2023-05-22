@@ -1,0 +1,212 @@
+{
+    "contentVersion": "1.0.0.0",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "parameters": {
+        "accountName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the machine learning experimentation team account"
+            }
+        },
+        "workspaceName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the machine learning experimentation workspace"
+            }
+        },
+        "projectName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the machine learning experimentation project"
+            }
+        },
+        "gitrepo": {
+            "defaultValue": "",
+            "type": "string",
+            "metadata": {
+                "description": "Git Repo location for this project"
+            }
+        },
+        "keyVaultName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name for the underlying key vault resource"
+            }
+        },
+        "tenantId": {
+            "type": "string",
+            "metadata": {
+                "description": "The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. - globally unique identifier. Get using Get-AzureRmSubscription cmdlet or Get Subscription API"
+            }
+        },
+        "location": {
+            "type": "string",
+            "metadata": {
+                "description": "Location of the machine learning experimentation team accountand other dependent resources."
+            }
+        },
+        "accessPolicies": {
+            "defaultValue": [],
+            "type": "Array",
+            "metadata": {
+                "description": "The access policies defined for this vault."
+            }
+        },
+        "vaultSku": {
+            "type": "string",
+            "defaultValue": "Standard",
+            "allowedValues": [
+                "Standard",
+                "Premium"
+            ],
+            "metadata": {
+                "description": "SKU for the vault"
+            }
+        },
+        "storageAccountSku": {
+            "type": "string",
+            "defaultValue": "Standard_LRS",
+            "metadata": {
+                "description": "Sku of the storage account"
+            }
+        },
+        "enableVaultForVolumeEncryption": {
+            "type": "bool",
+            "defaultValue": false,
+            "metadata": {
+                "description": "Specifies if azure disk encryption is permitted to retrieve secrets stored in ke vault"
+            }
+        },
+        "enabledForTemplateDeployment": {
+            "type": "bool",
+            "defaultValue": false,
+            "metadata": {
+                "description": "Specifies if azure resource manager is permitted to retrieve secrets stored in ke vault"
+            }
+        },
+        "enabledForDeployment": {
+            "type": "bool",
+            "defaultValue": false,
+            "metadata": {
+                "description": "Specifies if azure vms are permitted to retrieve certificates stored as secrets"
+            }
+        },
+        "adminUserEnabled": {
+            "type": "bool",
+            "defaultValue": false,
+            "metadata": {
+                "description": "Enable admin user"
+            }
+        }
+    },
+    "variables": {
+        "mlexpVersion": "2018-03-01-preview",
+        "vstsVersion": "2014-04-01-preview",
+        "stgResourceId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('accountName'))]"
+    },
+    "resources": [
+        {
+            "name": "[parameters('accountName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "location": "[parameters('location')]",
+            "apiVersion": "2016-12-01",
+            "tags": {
+                "mlteamAccount": "[parameters('accountName')]"
+            },
+            "sku": {
+                "name": "[parameters('storageAccountSku')]"
+            },
+            "kind": "Storage",
+            "properties": {
+                "encryption": {
+                    "services": {
+                        "blob": {
+                            "enabled": true
+                        }
+                    },
+                    "keySource": "Microsoft.Storage"
+                },
+                "supportsHttpsTrafficOnly": true,
+                "allowBlobPublicAccess": false
+            }
+        },
+        {
+            "apiVersion": "[variables('vstsVersion')]",
+            "name": "[parameters('accountName')]",
+            "type": "microsoft.visualstudio/account",
+            "location": "Central US",
+            "properties": {
+                "operationType": "Create",
+                "accountName": "[parameters('accountName')]"
+            }
+        },
+        {
+            "type": "Microsoft.KeyVault/vaults",
+            "name": "[parameters('accountName')]",
+            "apiVersion": "2015-06-01",
+            "location": "[parameters('location')]",
+            "tags": {
+                "displayName": "KeyVault"
+            },
+            "properties": {
+                "enabledForDeployment": "[parameters('enabledForDeployment')]",
+                "enabledForTemplateDeployment": "[parameters('enabledForTemplateDeployment')]",
+                "enabledForVolumeEncryption": "[parameters('enableVaultForVolumeEncryption')]",
+                "tenantId": "[parameters('tenantId')]",
+                "accessPolicies": "[parameters('accessPolicies')]",
+                "sku": {
+                    "name": "[parameters('vaultSku')]",
+                    "family": "A"
+                }
+            }
+        },
+        {
+            "apiVersion": "[variables('mlexpVersion')]",
+            "type": "Microsoft.MachineLearningServices/teamAccounts",
+            "name": "[parameters('accountName')]",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[resourceId('microsoft.visualstudio/account', parameters('accountName'))]",
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('accountName'))]",
+                "[resourceId('Microsoft.KeyVault/vaults', parameters('accountName'))]"
+            ],
+            "resources": [
+                {
+                    "apiVersion": "[variables('mlexpVersion')]",
+                    "name": "[parameters('workspaceName')]",
+                    "type": "workspaces",
+                    "location": "[parameters('location')]",
+                    "dependsOn": [
+                        "[parameters('accountName')]"
+                    ],
+                    "resources": [
+                        {
+                            "apiVersion": "[variables('mlexpVersion')]",
+                            "name": "[parameters('projectName')]",
+                            "type": "projects",
+                            "location": "[parameters('location')]",
+                            "dependsOn": [
+                                "[parameters('workspaceName')]"
+                            ],
+                            "properties": {
+                                "friendlyName": "[parameters('projectName')]",
+                                "gitrepo": "[parameters('gitrepo')]"
+                            }
+                        }
+                    ],
+                    "properties": {
+                        "friendlyName": "[parameters('workspaceName')]"
+                    }
+                }
+            ],
+            "properties": {
+                "vsoAccountId": "[resourceId('microsoft.visualstudio/account', parameters('accountName'))]",
+                "keyVaultIdentifierId": "[resourceId('Microsoft.KeyVault/vaults', parameters('accountName'))]",
+                "storageAccount": {
+                    "storageAccountId": "[variables('stgResourceId')]",
+                    "accessKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('accountName')), '2016-12-01').keys[0].value]"
+                }
+            }
+        }
+    ]
+}

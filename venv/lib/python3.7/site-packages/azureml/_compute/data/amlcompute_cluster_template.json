@@ -1,0 +1,33 @@
+{
+  "location": "",
+  "tags": null,
+  "properties": {
+    "computeType": "AmlCompute",
+    "computeLocation": "",
+    "resourceId": "",
+    "description": "",
+    "properties": {
+      "vmSize": "",
+      "vmPriority": "",
+      "scaleSettings": {
+        "minNodeCount": null,
+        "maxNodeCount": null,
+        "nodeIdleTimeBeforeScaleDown" : null
+      },
+      "userAccountCredentials": {
+        "adminUserName": "",
+        "adminUserPassword": "",
+        "adminUserSshPublicKey": ""
+      },
+      "subnet": {
+        "id" : ""
+      },
+      "remoteLoginPortPublicAccess": "",
+      "enableNodePublicIp": ""
+    }
+  },
+  "identity": {
+    "type": "",
+    "userAssignedIdentities": {}
+  }
+}

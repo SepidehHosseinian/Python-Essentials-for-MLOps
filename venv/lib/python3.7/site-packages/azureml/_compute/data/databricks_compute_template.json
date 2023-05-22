@@ -1,0 +1,11 @@
+{
+  "location": "",
+  "properties": {
+    "computeType": "Databricks",
+    "computeLocation": "",
+    "resourceId": "",
+    "properties": {
+      "databricksAccessToken": ""
+    }
+  }
+}
