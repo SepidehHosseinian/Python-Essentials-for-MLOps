@@ -21,7 +21,7 @@ setup(
     name='summarize',
     description='demo python CLI tool to summarize text using HuggingFace',
     packages=find_packages(),
-    author='Alfredo Deza',
+    author='Sepideh Hosseinian',
     entry_points="""
     [console_scripts]
     summarize=src.Automation_with_Command_Line_Tools.Summarization.summarize:main
