@@ -1,0 +1,4 @@
+
+    [console_scripts]
+    jformat=src.Automation_with_Command_Line_Tools.Creating_Single_File_Script.python_cli:main
+    

@@ -1,0 +1,8 @@
+README.md
+setup.py
+demo_jformat.egg-info/PKG-INFO
+demo_jformat.egg-info/SOURCES.txt
+demo_jformat.egg-info/dependency_links.txt
+demo_jformat.egg-info/entry_points.txt
+demo_jformat.egg-info/requires.txt
+demo_jformat.egg-info/top_level.txt
