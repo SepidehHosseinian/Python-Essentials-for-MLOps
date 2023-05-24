@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: summarize
+Version: 0.0.1
+Summary: demo python CLI tool to summarize text using HuggingFace
+Home-page: https://github.com/alfredodeza/huggingface-summarization
+Author: Sepideh Hosseinian
+Author-email: UNKNOWN
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN

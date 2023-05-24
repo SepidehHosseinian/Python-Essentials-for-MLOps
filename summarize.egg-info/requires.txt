@@ -1,0 +1,4 @@
+transformers==4.21.2
+click==7.1.2
+tensorflow
+beautifulsoup4==4.11.1
