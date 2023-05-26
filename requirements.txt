@@ -6,3 +6,5 @@ simpletransformers==0.4.0
 tensorboardX==1.9
 torch==1.7.1
 onnxruntime==1.6.0
+fastapi==0.78.0
+uvicorn[standard]
