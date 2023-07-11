@@ -6,7 +6,7 @@ This repository contains the code and materials for the course "Python Essential
 
 •  notebooks: This folder contains the Jupyter notebooks for each lesson of the course. The notebooks include the lecture slides, code examples, exercises, and solutions.
 
-•  scripts: This folder contains the Python scripts for some of the code examples and exercises in the notebooks.
+•  src: This folder contains the Python scripts for some of the code examples and exercises in the notebooks.
 
 •  data: This folder contains the data files used in the notebooks and scripts.
 
