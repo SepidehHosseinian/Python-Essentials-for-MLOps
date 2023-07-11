@@ -36,4 +36,4 @@ To run the scripts, you can use any Python IDE or editor of your choice, or run 
 python scripts/<script_name>.py
 ```
 ## License
-This repository is licensed under the MIT License.
+This repository is licensed under the  Apache-2.0 License.
